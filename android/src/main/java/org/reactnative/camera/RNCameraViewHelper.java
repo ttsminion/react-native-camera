@@ -225,11 +225,17 @@ public class RNCameraViewHelper {
 
   public static void emitBarcodesDetectedEvent(
       ViewGroup view,
-      SparseArray<Barcode> barcodes
+      SparseArray<Barcode> barcodes,
+      int sourceWidth,
+      int sourceHeight,
+      int sourceRotation
   ) {
     BarcodesDetectedEvent event = BarcodesDetectedEvent.obtain(
         view.getId(),
-        barcodes
+        barcodes,
+        sourceWidth,
+        sourceHeight,
+        sourceRotation
     );
 
     ReactContext reactContext = (ReactContext) view.getContext();
